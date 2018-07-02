@@ -9,6 +9,13 @@ document.getElementById('add').addEventListener('click', function(){
     };
  });
 
+function removeItem() {
+    var item = this.parentNode.parentNode;
+    var parent = item.parentNode;
+    parent.removeChild(item);
+}
+
+
  function addItemTodo(text) {
 
     var list = document.getElementById('todo');
@@ -22,6 +29,8 @@ document.getElementById('add').addEventListener('click', function(){
     var remove = document.createElement('button');
     remove.classList.add('remove');
     remove.innerHTML = removeSVG;
+
+    remove.addEventListener('click', removeItem);
 
     var complete = document.createElement('button');
     complete.classList.add('complete');
